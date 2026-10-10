@@ -1,0 +1,5 @@
+# Compiler temporary build files
+*.exe
+*.obj
+*pdb
+*.ilk
