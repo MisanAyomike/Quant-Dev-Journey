@@ -6,6 +6,6 @@ My personal roadmap, code repository, and project portfolio tracking my journey 
 * **Databes:** Oracle SQL
 * **Version Control:** Git & Github
 
-##Current Focus
+## Current Focus
 * Mastering modern C++ fundamentals via LearnCpp.com
 * Setting up development environments and automated data pipelines
