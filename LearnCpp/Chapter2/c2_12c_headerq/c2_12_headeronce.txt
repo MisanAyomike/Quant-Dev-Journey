@@ -1,0 +1,22 @@
+#pragma once
+
+Modern compilers support a simpler, alternate form of header guards using the #pragma preprocessor directive:
+
+code start:
+
+#pragma once
+
+// your code here
+
+code end.
+
+#pragma once serves the same purpose as header guards: to avoid a header file from being included multiple times.
+With traditional header guards, the developer is responsible for guarding the header (by using preprocessor directives
+#ifndef, #define, and #endif). With #pragma once, we’re requesting that the compiler guard the header. How exactly it 
+does this is an implementation-specific detail.
+
+Because #pragma once is not defined by the C++ standard, it is possible that some compilers may not implement it. 
+For this reason, some development houses (such as Google) recommend using traditional header guards. 
+In this tutorial series, we will favor header guards, as they are the most conventional way to guard headers. 
+However, support for #pragma once is fairly ubiquitous at this point, and if you wish to use #pragma once instead, 
+that is generally accepted in modern C++.
