@@ -13,7 +13,10 @@ This repository represents the comprehensive data science and research portfolio
 ##  Project Overview
 Under the guidance of Principal Investigator **Dr. Pietro Veronesi** at the University of Chicago Booth School of Business, this study evaluated **GPT-4o’s extraction efficiency and structural accuracy** against an audited manual human baseline. 
 
-The study tracked 6 critical financial parameters across the 2023 annual reports of 20 pharmaceutical companies involved in oncology research (240 total observations):
+## Project Overview
+Under the guidance of Principal Investigator **Dr. Pietro Veronesi** at the University of Chicago Booth School of Business, this study evaluated **GPT-4o’s extraction efficiency and structural accuracy** against an audited manual human baseline. 
+
+The study tracked 6 critical financial parameters across the annual reports of 20 pharmaceutical companies involved in oncology research, evaluating 240 total observations. The dataset tracks the latest sequential financial releases available during the study window, capturing the standard fiscal year ending **December 31, 2023** for Western firms, alongside localized non-standard fiscal calendars ending **March 31, 2024** for Japanese entities (Takeda and Eisai):
 * Total Revenue / Net Sales
 * Operating Profits / Loss
 * Basic Earnings Per Share (EPS)
@@ -24,36 +27,34 @@ The study tracked 6 critical financial parameters across the 2023 annual reports
 ## Key Analytical Takeaways
 * **The Speed Advantage:** GPT-4o processed the entire corporate annual report array in **1 hour and 30 minutes**, compared to **8 hours and 30 minutes** for the manual human baseline—yielding an efficiency gain ratio of **5.86x**.
 * **Global Error Rates:** Disregarding directional discrepancies, GPT-4o demonstrated **86% absolute accuracy** within a strict 5% error baseline.
-* **Underestimation Vectors:** The model showed a consistent structural tendency to underestimate complex operational values, maintaining a negative directional average error of **-10.60%**. However, it achieved perfect convergence (**0.00% error**) at the median for over half of the total observations.
+* **Underestimation Vectors:** The model showed a consistent structural tendency to underestimate complex operational values, maintaining a negative directional average error of **-10.60%** inside our paper charts. However, it achieved perfect convergence (**0.00% error**) at the median for over half of the total observations.
 
-## 🛠️ Portfolio Migration & Mathematical Alignment
+## Portfolio Migration & Mathematical Alignment
 The core data parsing, financial parameters, and statistical logic of this study were originally executed using Microsoft Excel. 
 
 To optimize this project for a modern quantitative development workflow, I ported the original mathematical frameworks into a pythonic automation script (`reproduce_metrics.py`) using `pandas`, `numpy`, and `matplotlib`.
 
-### Mathematical Convergence Note
-During the initial porting phase, tracking discrepancies were isolated and resolved by aligning the script's calculation parameters with the exact percentage error logic implemented in the UChicago Excel spreadsheet. While standard variations check error relative to the AI's estimation, true mathematical convergence down to the sixth decimal point was achieved by evaluating directional error relative to our **audited human baseline**:
+### Programmatic Matrix Execution & Precision Tracking
+When porting the financial data arrays from cell configurations into Python vector spaces, the calculations were intentionally executed using an automated structural loop rather than manually forcing truncations to copy Excel's floating-point cell rounding boundaries. 
 
-$$\text{Error} = \frac{\text{AI Extracted Value} - \text{Manual Human Baseline}}{\text{Manual Human Baseline}}$$
-
-Enforcing this equation across our data arrays guarantees 100% data fidelity, confirming our absolute mean error at **11.7827%** and full-sample standard deviation at **41.3381%**, completely mirroring our verified academic results.
+This programmatic execution explicitly traces and displays our native system-level environment runtime metrics—accounting for a raw absolute mean error at **12.396860%**, a directional mean error at **-5.927238%**, and a global standard deviation of **40.366232%**. This approach guarantees strict algorithmic replication, preserving complete dataset transparency and auditable integrity for quantitative pipelines.
 
 ### Validated Statistical Breakdown (Reproduced via Python)
 
 | Financial Metric | Absolute Mean Error (%) | Absolute Standard Deviation (%) | Directional Mean Error (%) | Directional Standard Deviation (%) |
 | :--- | :--- | :--- | :--- | :--- |
-| **Total Revenue / Net Sales** | 0.1755% | 0.7574% | 0.1647% | 0.7600% |
-| **Operating Profits** | 21.5599% | 58.7618% | -19.4786% | 59.5220% |
-| **Basic Earnings Per Share (EPS)** | 10.1555% | 44.6902% | -9.8445% | 44.7634% |
-| **Research & Development (R&D)** | 6.5836% | 22.2761% | -4.7521% | 22.7614% |
-| **Total Employees** | 10.2841% | 30.7083% | -10.2841% | 30.7083% |
-| **Operating Margin** | 21.9378% | 58.5503% | -19.3925% | 59.4884% |
+| **Total Revenue / Net Sales** | 0.1699% | 0.7326% | -0.1592% | 0.7351% |
+| **Operating Profits** | 23.4492% | 56.7509% | -5.1452% | 61.4133% |
+| **Basic Earnings Per Share (EPS)** | 10.1508% | 44.6909% | -10.1508% | 44.6909% |
+| **Research & Development (R&D)** | 6.5680% | 22.2775% | -5.1018% | 22.6782% |
+| **Total Employees** | 10.3012% | 30.7057% | -9.6988% | 30.9116% |
+| **Operating Margin** | 23.7420% | 56.2709% | -5.3076% | 61.0746% |
 
-##  Execution Instructions
+## Execution Instructions
 To activate your environment and execute the automated metrics verification script:
 ```bash
 # Clone the repository
-git clone https://github.com/misanayomike/quant-dev-journey.git
+git clone https://github.com/MisanAyomike/quant-dev-journey
 
 # Navigate to the project folder
 cd quant-dev-journey/01_LLM_Financial_Error_Analysis
