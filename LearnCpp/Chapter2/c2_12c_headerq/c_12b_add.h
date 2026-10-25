@@ -1,3 +1,3 @@
-#pragma C_12B_ADD_H
+#pragma once
 
 int add(int x, int y);

@@ -17,7 +17,7 @@ int main()
 {
     // x can not be used here because it's not in scope yet
 
-    int x{ 0 }; // x enters scope here and can now be used within this function
+    [[maybe_unused]] int x{ 0 }; // x enters scope here and can now be used within this function
 
     doSomething();
 

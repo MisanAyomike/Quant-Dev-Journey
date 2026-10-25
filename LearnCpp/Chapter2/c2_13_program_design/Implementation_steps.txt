@@ -1,0 +1,44 @@
+Read Design_steps.txt
+
+Implementation step 1: Outlining your main function
+
+Now we’re ready to start implementation. The above sequences can be used to outline your main 
+program. Don’t worry about inputs and outputs for the time being.
+
+int main()
+{
+//    doBedroomThings();
+//    doBathroomThings();
+//    doBreakfastThings();
+//    doTransportationThings();
+
+    return 0;
+}
+Or in the case of the calculator:
+
+
+int main()
+{
+    // Get first number from user
+//    getUserInput();
+
+    // Get mathematical operation from user
+//    getMathematicalOperation();
+
+    // Get second number from user
+//    getUserInput();
+
+    // Calculate result
+//    calculateResult();
+
+    // Print result
+//    printResult();
+
+    return 0;
+}
+
+Note that if you’re going to use this “outline” method for constructing your programs, 
+your functions won’t compile because the definitions don’t exist yet. Commenting out the 
+function calls until you’re ready to implement the function definitions is one way to address
+ this (and the way we’ll show here). Alternatively, you can stub out your functions 
+ (create placeholder functions with empty bodies) so your program will compile.
