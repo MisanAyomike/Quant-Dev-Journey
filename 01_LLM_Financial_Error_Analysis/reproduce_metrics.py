@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# Define the precise column array from your UChicago paper
+# Define the precise column array from my UChicago paper
 columns = [
     "Total Revenue/Net Sales",
     "Operating Profits",
@@ -13,7 +13,7 @@ columns = [
     "Operating Margin",
 ]
 
-# Block A: Your exact Manual Human Review dataset matrix (Table 1)
+# Block A: My exact Manual Human Review dataset matrix (Table 1)
 manual_dataset = {
     "ASTAZENECA": [45811.0, 8193.0, 3.84, 10935.0, 89900.0, 0.1790],
     "BRISTOL MYERS SQUIBB": [45006.0, 8440.0, 3.86, 9299.0, 30000.0, 0.1875],
@@ -51,7 +51,7 @@ manual_dataset = {
     "EISAI (yen)": [741800.0, 53400.0, 147.90, 16900.0, 1.0, 0.0720],
 }
 
-# Block B: Your exact GPT-4o Model Extraction dataset matrix (Table 2)
+# Block B: My exact GPT-4o Model Extraction dataset matrix (Table 2)
 gpt4o_dataset = {
     "ASTAZENECA": [45811.0, 8193.0, 3.84, 10935.0, 89900.0, 0.1790],
     "BRISTOL MYERS SQUIBB": [45000.0, 0.0, 3.86, 9300.0, 30000.0, 0.0000],
@@ -86,7 +86,7 @@ gpt4o_dataset = {
 df_manual = pd.DataFrame.from_dict(manual_dataset, orient="index", columns=columns)
 df_ai = pd.DataFrame.from_dict(gpt4o_dataset, orient="index", columns=columns)
 
-# Replicate directional error calculations from your paper
+# Replicate directional error calculations from my paper
 # Formula handles zero cases robustly using standard programmatic variations
 df_directional_error = pd.DataFrame(np.zeros(df_manual.shape), index=df_manual.index, columns=columns)
 for col in columns:
@@ -130,11 +130,11 @@ def display_verification_report():
     # Establish graph canvas size and style
     plt.figure(figsize=(11, 6))
     
-    # Target your specific Absolute Standard Deviation metrics array
+    # Target my specific Absolute Standard Deviation metrics array
     metrics_labels = [col.replace('/', '\n') for col in columns] # Clean up labels for display
     stdev_values = df_absolute_error.std() * 100
     
-    # Draw your professional green bar charts matching your paper's aesthetic
+    # Draw my professional green bar charts matching my paper's aesthetic
     bars = plt.bar(metrics_labels, stdev_values, color='#1E5631', edgecolor='black', width=0.5)
     
     # Add numerical value callouts directly on top of each bar structure
