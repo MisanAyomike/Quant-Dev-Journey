@@ -1,0 +1,27 @@
+Randomization in C++ 
+
+The randomization capabilities in C++ are accessible via the <random> header of the standard library. Within the random library, there are 6 PRNG families available for use (as of C++20):
+
+Type name	Family	Period	State size*	Performance	Quality	Should I use this?
+minstd_rand
+minstd_rand0	Linear congruential generator	2^31	4 bytes	Bad	Awful	No
+
+mt19937
+mt19937_64	Mersenne twister	2^19937	2500 bytes	Decent	Decent	Probably (see next section)
+
+ranlux24
+ranlux48	Subtract and carry	10^171	96 bytes	Awful	Good	No
+
+knuth_b	Shuffled linear congruential generator	2^31	1028 bytes	Awful	Bad	No
+
+default_random_engine	Any of above (implementation defined)	Varies	Varies	?	?	No^2
+
+rand()	Linear congruential generator	2^31	4 bytes	Bad	Awful	No^no
+
+
+The Mersenne Twister (std::mt19937) & Xoshiro/Wyrand (Non-Cryptographic): This is your bread
+and butter. In quantitative finance, we do not care if an algorithm is "predictable" to an
+attacker. We care about speed and statistical independence. When you run a Monte Carlo 
+simulation pricing a complex asset, your program needs to generate hundreds of millions 
+of random shocks per second. Non-cryptographic PRNGs like std::mt19937 or Xoshiro are built 
+specifically to satisfy advanced empirical distributions at blindingly fast execution speeds.
